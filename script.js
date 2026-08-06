@@ -1,9 +1,9 @@
 function unlock(){
 
-    let password = document.getElementById("pass").value;
+    let password = document.getElementById("pass").value.toLowerCase();
 
 
-    if(password === "W"){
+    if(password === "w"){
 
         next("welcome");
 
@@ -16,6 +16,7 @@ function unlock(){
     }
 
 }
+
 
 
 
@@ -39,6 +40,7 @@ function next(id){
 
     if(id==="quiz"){
 
+        currentQuestion = 0;
         loadQuestion();
 
     }
@@ -52,6 +54,7 @@ function next(id){
     }
 
 }
+
 
 
 
@@ -85,6 +88,7 @@ correct:0
 
 
 
+
 {
 
 question:"What is my favourite name for you? 🥰",
@@ -104,6 +108,7 @@ answers:[
 correct:0
 
 },
+
 
 
 
@@ -131,6 +136,7 @@ correct:3
 
 
 
+
 {
 
 question:"What makes our bond special? 💖",
@@ -150,6 +156,7 @@ answers:[
 correct:3
 
 },
+
 
 
 
@@ -175,8 +182,9 @@ correct:3
 }
 
 
-
 ];
+
+
 
 
 
@@ -203,6 +211,8 @@ let feedback = document.getElementById("feedback");
 
 
 feedback.innerHTML="";
+
+
 
 
 
@@ -272,13 +282,13 @@ feedback.innerHTML =
 
 
 
+
 setTimeout(()=>{
 
 
 currentQuestion++;
 
 loadQuestion();
-
 
 
 },1200);
@@ -327,8 +337,8 @@ let letterText =
 
 
 
-function typeWriter(){
 
+function typeWriter(){
 
 
 let box = document.getElementById("type");
@@ -342,7 +352,6 @@ let i=0;
 
 
 let timer=setInterval(()=>{
-
 
 
 box.innerHTML += letterText[i]
@@ -405,6 +414,7 @@ document.body.appendChild(heart);
 
 
 
+
 setTimeout(()=>{
 
 
@@ -420,6 +430,7 @@ heart.remove();
 
 
 }
+
 
 
 
