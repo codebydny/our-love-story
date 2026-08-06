@@ -1,42 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Our Love Story ❤️</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <title>Saku ❤️ Bebo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="hearts"></div>
+<div id="password" class="screen active">
+    <div class="penguin">🐧</div>
+    <h1>Secret Surprise ❤️</h1>
+    <p>Enter the secret word</p>
 
-<div class="container">
+    <input id="pass" type="password">
 
-<h1>❤️ Our Love Story ❤️</h1>
+    <br>
+    <button onclick="unlock()">Unlock 🔓</button>
 
-<h2>For My Dearest</h2>
+    <p id="error"></p>
+</div>
 
-<h3>Saku 🌹</h3>
 
-<input
-id="password"
-type="password"
-placeholder="Enter Secret Password">
+<div id="welcome" class="screen">
+    <div class="penguin">🐧❤️🐧</div>
 
-<button onclick="checkPassword()">
+    <h1>Hello Saku ❤️</h1>
 
-Begin Our Journey ❤️
+    <p>
+    I made something small...
+    but filled with lots of love.
+    </p>
 
-</button>
+    <button onclick="next('quiz')">
+    Begin Our Journey 💌
+    </button>
+</div>
 
-<p id="error"></p>
+
+<div id="quiz" class="screen">
+
+<h1>Love Quiz ❤️</h1>
+
+<p id="question"></p>
+
+<div id="answers"></div>
 
 </div>
+
+
+
+<div id="timeline" class="screen">
+
+<div class="penguin">🐧📅</div>
+
+<h1>Our Little Story ❤️</h1>
+
+<p>
+Together since
+<br>
+<b>1 May 2025</b>
+</p>
+
+<p>
+❤️ First conversations
+<br>
+💬 Endless talks
+<br>
+😂 Beautiful memories
+<br>
+🐧 Still waddling together
+</p>
+
+<button onclick="next('letter')">
+Open Letter 💌
+</button>
+
+</div>
+
+
+
+<div id="letter" class="screen">
+
+<div class="penguin">🐧📜</div>
+
+<h1>For Saku ❤️</h1>
+
+<p id="type"></p>
+
+<button onclick="next('final')">
+Continue ❤️
+</button>
+
+</div>
+
+
+
+
+<div id="final" class="screen">
+
+<div class="penguin">🐧❤️🐧</div>
+
+<h1>Forever & Always</h1>
+
+<p>
+Saku ❤️ Bebo
+<br><br>
+Since 1 May 2025
+<br><br>
+♾️
+</p>
+
+<p>
+Thank you for being part of my happiest memories.
+<br>
+Let's keep waddling through life together 🐧❤️
+</p>
+
+</div>
+
+
 
 <script src="script.js"></script>
 
