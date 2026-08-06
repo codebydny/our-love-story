@@ -1,43 +1,50 @@
 function unlock(){
 
-    let password=document.getElementById("pass").value;
+let password=document.getElementById("pass").value;
 
-    if(password==="W"){
 
-        next("welcome");
+if(password==="W"){
 
-    }
-    else{
+    next("welcome");
 
-        document.getElementById("error").innerHTML=
-        "🐧 Wrong secret! Try again ❤️";
+}
+else{
 
-    }
+    document.getElementById("error").innerHTML=
+    "🐧 Wrong secret! Try again ❤️";
+
+}
 
 }
 
 
 
+
 function next(id){
 
-    document.querySelectorAll(".screen")
-    .forEach(screen=>{
-        screen.classList.remove("active");
-    });
+document.querySelectorAll(".screen")
+.forEach(screen=>{
+    screen.classList.remove("active");
+});
 
 
-    document.getElementById(id)
-    .classList.add("active");
+document.getElementById(id)
+.classList.add("active");
 
 
-    if(id==="quiz"){
-        loadQuestion();
-    }
+if(id==="quiz"){
+
+    loadQuestion();
+
+}
 
 
-    if(id==="letter"){
-        typeWriter();
-    }
+if(id==="letter"){
+
+    typeWriter();
+
+}
+
 
 }
 
@@ -47,54 +54,94 @@ function next(id){
 
 let questions=[
 
+
 {
-question:"Who is the cutest penguin? 🐧",
+question:"When did our little journey begin? 🐧❤️",
+
 answers:[
-"Me 😌",
-"You 🥰",
-"Both of us ❤️",
-"Our penguin babies 😂"
-]
+"1 May 2025 ❤️",
+"Valentine's Day 💕",
+"New Year's Day 🎉",
+"A random Tuesday 😂"
+],
+
+correct:0
+
 },
 
 
-{
-question:"If we were penguins what would we do?",
-answers:[
-"Hold flippers ❤️",
-"Eat fish 🐟",
-"Waddle everywhere 🐧",
-"All of the above 💕"
-]
-},
-
 
 {
-question:"Where would our penguin adventure be?",
-answers:[
-"Beach 🏖️",
-"Mountains 🏔️",
-"Anywhere with you ❤️",
-"City lights 🌃"
-]
-},
+question:"What is my favourite name for you? 🥰",
 
-
-{
-question:"My favourite nickname?",
 answers:[
 "Saku ❤️",
-"Bebo 🥰",
 "Penguin Queen 🐧",
-"All of them 💖"
-]
+"Cutie 🥺",
+"All of these 💖"
+],
+
+correct:0
+
+},
+
+
+
+{
+question:"If we could spend a perfect day together, what matters most? ❤️",
+
+answers:[
+"Expensive gifts 🎁",
+"Fancy places ✨",
+"Good food 🍕",
+"Just being together 🫶"
+],
+
+correct:3
+
+},
+
+
+
+{
+question:"What makes our bond special? 💖",
+
+answers:[
+"Our silly conversations 😂",
+"Understanding each other ❤️",
+"Supporting each other 🌎",
+"All of these 🐧"
+],
+
+correct:3
+
+},
+
+
+
+{
+question:"After all our memories, what do I hope for? ❤️",
+
+answers:[
+"More adventures together 🐧",
+"More smiles and happiness 😊",
+"A lifetime of memories ♾️",
+"All of the above ❤️"
+],
+
+correct:3
+
 }
+
 
 ];
 
 
 
+
+
 let currentQuestion=0;
+
 
 
 
@@ -106,6 +153,12 @@ let question=document.getElementById("question");
 let answers=document.getElementById("answers");
 
 
+let feedback=document.getElementById("feedback");
+
+feedback.innerHTML="";
+
+
+
 if(currentQuestion>=questions.length){
 
     next("timeline");
@@ -115,39 +168,78 @@ if(currentQuestion>=questions.length){
 }
 
 
+
 question.innerHTML=
 questions[currentQuestion].question;
+
 
 
 answers.innerHTML="";
 
 
-questions[currentQuestion].answers.forEach(answer=>{
+
+questions[currentQuestion].answers
+.forEach((answer,index)=>{
 
 
 let button=document.createElement("button");
 
+
 button.className="option";
+
 
 button.innerHTML=answer;
 
 
+
 button.onclick=function(){
 
-    currentQuestion++;
 
-    loadQuestion();
+
+if(index===questions[currentQuestion].correct){
+
+
+feedback.innerHTML=
+"🐧✨ Perfect! You know our story ❤️";
+
+
+}
+else{
+
+
+feedback.innerHTML=
+"🐧💕 Cute answer... but our little secret is different ❤️";
+
+
+}
+
+
+
+setTimeout(()=>{
+
+currentQuestion++;
+
+loadQuestion();
+
+},1200);
+
+
 
 };
+
 
 
 answers.appendChild(button);
 
 
+
 });
 
 
+
 }
+
+
 
 
 
@@ -163,34 +255,40 @@ let letterText=
 
 
 
+
+
+
 function typeWriter(){
 
-    let box=document.getElementById("type");
 
-    box.innerHTML="";
+let box=document.getElementById("type");
 
-
-    let i=0;
+box.innerHTML="";
 
 
-    let timer=setInterval(()=>{
+let i=0;
 
 
-        box.innerHTML += letterText[i]
-        .replace("\n","<br>");
+let timer=setInterval(()=>{
 
 
-        i++;
+box.innerHTML += letterText[i]
+.replace("\n","<br>");
 
 
-        if(i>=letterText.length){
-
-            clearInterval(timer);
-
-        }
+i++;
 
 
-    },40);
+if(i>=letterText.length){
+
+clearInterval(timer);
+
+}
+
+
+},40);
+
+
 
 }
 
@@ -198,22 +296,29 @@ function typeWriter(){
 
 
 
+
+
 function createHearts(){
+
 
 setInterval(()=>{
 
 
 let heart=document.createElement("div");
 
+
 heart.className="heart";
+
 
 heart.innerHTML="❤️";
 
 
-heart.style.left=Math.random()*100+"%";
+heart.style.left=
+Math.random()*100+"%";
 
 
 document.body.appendChild(heart);
+
 
 
 setTimeout(()=>{
@@ -227,7 +332,9 @@ heart.remove();
 },700);
 
 
+
 }
+
 
 
 createHearts();

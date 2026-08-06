@@ -1,52 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Saku ❤️ Bebo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+
+<title>Saku ❤️ Bebo</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
+
 <div id="password" class="screen active">
-    <div class="penguin">🐧</div>
-    <h1>Secret Surprise ❤️</h1>
-    <p>Enter the secret word</p>
 
-    <input id="pass" type="password">
+<div class="penguin">🐧</div>
 
-    <br>
-    <button onclick="unlock()">Unlock 🔓</button>
+<h1>Secret Surprise ❤️</h1>
 
-    <p id="error"></p>
+<p>Enter the secret word</p>
+
+<input id="pass" type="password">
+
+<br>
+
+<button onclick="unlock()">Unlock 🔓</button>
+
+<p id="error"></p>
+
 </div>
+
 
 
 <div id="welcome" class="screen">
-    <div class="penguin">🐧❤️🐧</div>
 
-    <h1>Hello Saku ❤️</h1>
+<div class="penguin">🐧❤️🐧</div>
 
-    <p>
-    I made something small...
-    but filled with lots of love.
-    </p>
+<h1>Hello Saku ❤️</h1>
 
-    <button onclick="next('quiz')">
-    Begin Our Journey 💌
-    </button>
+<p>
+I made something small...
+but filled with lots of love.
+</p>
+
+<button onclick="next('quiz')">
+Begin Our Journey 💌
+</button>
+
 </div>
+
+
 
 
 <div id="quiz" class="screen">
 
-<h1>Love Quiz ❤️</h1>
+<h1>Our Little Story ❤️</h1>
 
 <p id="question"></p>
 
 <div id="answers"></div>
 
+<div id="feedback"></div>
+
 </div>
+
+
 
 
 
@@ -54,13 +73,15 @@
 
 <div class="penguin">🐧📅</div>
 
-<h1>Our Little Story ❤️</h1>
+<h1>Our Story ❤️</h1>
+
 
 <p>
 Together since
 <br>
 <b>1 May 2025</b>
 </p>
+
 
 <p>
 ❤️ First conversations
@@ -72,6 +93,7 @@ Together since
 🐧 Still waddling together
 </p>
 
+
 <button onclick="next('letter')">
 Open Letter 💌
 </button>
@@ -80,7 +102,10 @@ Open Letter 💌
 
 
 
+
+
 <div id="letter" class="screen">
+
 
 <div class="penguin">🐧📜</div>
 
@@ -88,20 +113,31 @@ Open Letter 💌
 
 <p id="type"></p>
 
+
 <button onclick="next('final')">
 Continue ❤️
 </button>
+
 
 </div>
 
 
 
 
+
+
 <div id="final" class="screen">
 
-<div class="penguin">🐧❤️🐧</div>
 
-<h1>Forever & Always</h1>
+<div class="penguin">
+🐧❤️🐧
+</div>
+
+
+<h1>
+Forever & Always
+</h1>
+
 
 <p>
 Saku ❤️ Bebo
@@ -111,17 +147,22 @@ Since 1 May 2025
 ♾️
 </p>
 
+
 <p>
 Thank you for being part of my happiest memories.
-<br>
+<br><br>
 Let's keep waddling through life together 🐧❤️
 </p>
 
+
 </div>
+
+
 
 
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
