@@ -1,19 +1,19 @@
 function unlock(){
 
-let password=document.getElementById("pass").value;
+    let password = document.getElementById("pass").value;
 
 
-if(password==="W"){
+    if(password === "W"){
 
-    next("welcome");
+        next("welcome");
 
-}
-else{
+    }
+    else{
 
-    document.getElementById("error").innerHTML=
-    "🐧 Wrong secret! Try again ❤️";
+        document.getElementById("error").innerHTML =
+        "🐧 Hmm... that's not the name you call me 😒❤️";
 
-}
+    }
 
 }
 
@@ -22,31 +22,38 @@ else{
 
 function next(id){
 
-document.querySelectorAll(".screen")
-.forEach(screen=>{
-    screen.classList.remove("active");
-});
+
+    document.querySelectorAll(".screen")
+    .forEach(screen=>{
+
+        screen.classList.remove("active");
+
+    });
 
 
-document.getElementById(id)
-.classList.add("active");
+
+    document.getElementById(id)
+    .classList.add("active");
 
 
-if(id==="quiz"){
 
-    loadQuestion();
+    if(id==="quiz"){
+
+        loadQuestion();
+
+    }
+
+
+
+    if(id==="letter"){
+
+        typeWriter();
+
+    }
 
 }
 
 
-if(id==="letter"){
-
-    typeWriter();
-
-}
-
-
-}
 
 
 
@@ -56,13 +63,19 @@ let questions=[
 
 
 {
+
 question:"When did our little journey begin? 🐧❤️",
 
 answers:[
+
 "1 May 2025 ❤️",
+
 "Valentine's Day 💕",
+
 "New Year's Day 🎉",
+
 "A random Tuesday 😂"
+
 ],
 
 correct:0
@@ -71,14 +84,21 @@ correct:0
 
 
 
+
 {
+
 question:"What is my favourite name for you? 🥰",
 
 answers:[
+
 "Saku ❤️",
+
 "Penguin Queen 🐧",
+
 "Cutie 🥺",
+
 "All of these 💖"
+
 ],
 
 correct:0
@@ -87,14 +107,21 @@ correct:0
 
 
 
+
 {
+
 question:"If we could spend a perfect day together, what matters most? ❤️",
 
 answers:[
+
 "Expensive gifts 🎁",
+
 "Fancy places ✨",
+
 "Good food 🍕",
+
 "Just being together 🫶"
+
 ],
 
 correct:3
@@ -103,14 +130,21 @@ correct:3
 
 
 
+
 {
+
 question:"What makes our bond special? 💖",
 
 answers:[
+
 "Our silly conversations 😂",
+
 "Understanding each other ❤️",
+
 "Supporting each other 🌎",
+
 "All of these 🐧"
+
 ],
 
 correct:3
@@ -119,19 +153,27 @@ correct:3
 
 
 
+
 {
+
 question:"After all our memories, what do I hope for? ❤️",
 
 answers:[
+
 "More adventures together 🐧",
+
 "More smiles and happiness 😊",
+
 "A lifetime of memories ♾️",
+
 "All of the above ❤️"
+
 ],
 
 correct:3
 
 }
+
 
 
 ];
@@ -140,7 +182,11 @@ correct:3
 
 
 
-let currentQuestion=0;
+
+let currentQuestion = 0;
+
+
+
 
 
 
@@ -148,18 +194,20 @@ let currentQuestion=0;
 function loadQuestion(){
 
 
-let question=document.getElementById("question");
+let question = document.getElementById("question");
 
-let answers=document.getElementById("answers");
+let answers = document.getElementById("answers");
+
+let feedback = document.getElementById("feedback");
 
 
-let feedback=document.getElementById("feedback");
 
 feedback.innerHTML="";
 
 
 
-if(currentQuestion>=questions.length){
+if(currentQuestion >= questions.length){
+
 
     next("timeline");
 
@@ -169,7 +217,9 @@ if(currentQuestion>=questions.length){
 
 
 
-question.innerHTML=
+
+
+question.innerHTML =
 questions[currentQuestion].question;
 
 
@@ -178,17 +228,22 @@ answers.innerHTML="";
 
 
 
+
+
 questions[currentQuestion].answers
 .forEach((answer,index)=>{
 
 
-let button=document.createElement("button");
+
+let button = document.createElement("button");
 
 
 button.className="option";
 
 
-button.innerHTML=answer;
+button.innerHTML = answer;
+
+
 
 
 
@@ -196,18 +251,19 @@ button.onclick=function(){
 
 
 
-if(index===questions[currentQuestion].correct){
+if(index === questions[currentQuestion].correct){
 
 
-feedback.innerHTML=
+feedback.innerHTML =
 "🐧✨ Perfect! You know our story ❤️";
 
 
 }
+
 else{
 
 
-feedback.innerHTML=
+feedback.innerHTML =
 "🐧💕 Cute answer... but our little secret is different ❤️";
 
 
@@ -215,17 +271,22 @@ feedback.innerHTML=
 
 
 
+
 setTimeout(()=>{
+
 
 currentQuestion++;
 
 loadQuestion();
+
+
 
 },1200);
 
 
 
 };
+
 
 
 
@@ -245,13 +306,21 @@ answers.appendChild(button);
 
 
 
-let letterText=
+
+
+let letterText =
 
 "Dear Saku ❤️\n\n"+
+
 "Sometimes the smallest moments become the biggest memories.\n\n"+
+
 "Thank you for every smile, every conversation, and every beautiful moment.\n\n"+
+
 "No matter where life takes us, I hope we always keep finding reasons to smile together.\n\n"+
+
 "Forever waddling with you 🐧❤️";
+
+
 
 
 
@@ -261,7 +330,9 @@ let letterText=
 function typeWriter(){
 
 
-let box=document.getElementById("type");
+
+let box = document.getElementById("type");
+
 
 box.innerHTML="";
 
@@ -269,21 +340,28 @@ box.innerHTML="";
 let i=0;
 
 
+
 let timer=setInterval(()=>{
+
 
 
 box.innerHTML += letterText[i]
 .replace("\n","<br>");
 
 
+
 i++;
 
 
-if(i>=letterText.length){
+
+if(i >= letterText.length){
+
 
 clearInterval(timer);
 
+
 }
+
 
 
 },40);
@@ -298,10 +376,13 @@ clearInterval(timer);
 
 
 
+
+
 function createHearts(){
 
 
 setInterval(()=>{
+
 
 
 let heart=document.createElement("div");
@@ -313,17 +394,22 @@ heart.className="heart";
 heart.innerHTML="❤️";
 
 
-heart.style.left=
+
+heart.style.left =
 Math.random()*100+"%";
+
 
 
 document.body.appendChild(heart);
 
 
 
+
 setTimeout(()=>{
 
+
 heart.remove();
+
 
 },5000);
 
@@ -334,6 +420,7 @@ heart.remove();
 
 
 }
+
 
 
 
